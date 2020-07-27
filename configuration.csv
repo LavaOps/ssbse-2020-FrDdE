@@ -1,3 +1,4 @@
+configno,dust,lcase_masking,soft_masking,ungapped,xdrop_gap,xdrop_gap_final,xdrop_ungap
 1,yes,TRUE,TRUE,TRUE,0,0,0
 2,yes,TRUE,TRUE,TRUE,0,0,0.1
 3,yes,TRUE,TRUE,TRUE,0,0,0.5
