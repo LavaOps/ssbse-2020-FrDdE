@@ -2,7 +2,7 @@
 
 The camera ready version of our paper- "Using a Genetic Algorithm to Optimize Configurations in a Data driven Application" can be found at ssbse20-FrDdE.pdf
 
-The ER-diagram file contains the entity relationship diagram for the major tables that were used for the study.
+The document 'Table description', contains the entity relationship diagram and the schema viewof the major tables used for the study.
 The data sheet () contains information about the reports generated from the study and used for answering the research questions.
 
 The csv files bear data for the MySql tables that were created and used for the study. The headers for all tables are provided. To replicate the tables in MySQL, run the queries provided below. Description of all table data (csv files):
