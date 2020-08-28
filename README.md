@@ -47,3 +47,9 @@ Load the data into the tables created:
 1. LOAD DATA LOCAL INFILE 'configuration.csv' INTO TABLE configuration FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
 2. LOAD DATA LOCAL INFILE 'fitness.csv' INTO TABLE fitness FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
 3. LOAD DATA LOCAL INFILE 'blastn_output.csv' INTO TABLE blastn_output FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
+
+Acknowledgments:
+
+This work is supported in part by This work is supported in part by NSF Grant CCF-1901543 and by The Center for Bioenergy Innovation (CBI) which is supported by the Office of Biological and Environmental Research in the DOE Office of Science.
+
+Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation or the Department of Energy.
