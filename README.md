@@ -19,13 +19,11 @@ The csv files bear data for the MySql tables that were created and used for the 
 
 6. maxFitnessScorePerSequence.csv - This file contains the list of all sequence numbers and the corresponding maximum fitness score possible for each of the sequences.
 
-7. null_hits.csv - These contain a list of all sequences (each identified by their unique sequence number) which found no hits/matches against the yeast database for a particular configuration sets (each identified by their unique configuration set number). Note that some sequences never found a hit for all 3000 configuration sets tested. There exist 19 such sequences in total.
+7. yeast.GCF.zip - This file bears the NCBI databases used for the experiment. The database we used was Baker's yeast.
 
-8. yeast.GCF.zip - This file bears the NCBI databases used for the experiment. The database we used was Baker's yeast.
+8. fitness.csv - This file contains a snapshot of the fitness table used for the study. The original fitness table has around 30 million records. The snapshot table has records for the first 10 input sequences and their corresponding 100 coconfiguration sets. It contains information about the hits, distance, average evalue, average percentage identity, median evalue, median percentage identity, w_distance, w_eval and the fitness score for the sequences and their corresponding configurations. 
 
-9. fitness.csv - This file contains a snapshot of the fitness table used for the study. The original fitness table has around 30 million records. The snapshot table has records for the first 10 input sequences and their corresponding 100 coconfiguration sets. It contains information about the hits, distance, average evalue, average percentage identity, median evalue, median percentage identity, w_distance, w_eval and the fitness score for the sequences and their corresponding configurations. 
-
-10. blastn_output.csv - This file contains a snapshot of the blastn_output table used for the study. The original blastn_output table has over 30 million records. The snapshot table has records for the first 10 input sequences queried using the first 100 configuration sets in blastn. The original table contains information about the outcome of individual hits generated when blastn was ran for every single input sequence against all 3000 possible configuration sets.
+9. blastn_output.csv - This file contains a snapshot of the blastn_output table used for the study. The original blastn_output table has over 30 million records. The snapshot table has records for the first 10 input sequences queried using the first 100 configuration sets in blastn. The original table contains information about the outcome of individual hits generated when blastn was ran for every single input sequence against all 3000 possible configuration sets.
 
 Queries to create the above tables: 
 
@@ -42,11 +40,23 @@ create table blastn_output(seqno int not null, configno int not null,hitno int n
 ALTER table fitness add primary key(seqno,configno,hitno);
 ALTER table blastn_output add constraint fk_blastnOp_config foreign key (configno) references configuration(configno);
 
+4. null_hits.csv - create table null_hits(seqno int not null, configno int not null);
+
+5. maxFitnessScorePerSequence.csv - create table maxFitnessScorePerSequence(seqno int not null, fitnessScore real(20,10));
+
+6. config_dist.csv - create table config_dist(configNo int not null, distance int not null);
+
+7. bestF_Eq_Def.csv - create table bestF_Eq_Def(seqno int not null, configno int not null,distance int not null,medianpercid real(20,10),medianeval real(20,10),hits int not null, fitnessScore real(20,10));
+
 Load the data into the tables created:
 
 1. LOAD DATA LOCAL INFILE 'configuration.csv' INTO TABLE configuration FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
 2. LOAD DATA LOCAL INFILE 'fitness.csv' INTO TABLE fitness FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
 3. LOAD DATA LOCAL INFILE 'blastn_output.csv' INTO TABLE blastn_output FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
+4. LOAD DATA LOCAL INFILE 'null_hits.csv' INTO TABLE null_hits FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
+5.
+6.
+7. 
 
 Acknowledgments:
 
