@@ -2,7 +2,7 @@
 
 The camera ready version of our paper- "Using a Genetic Algorithm to Optimize Configurations in a Data driven Application" can be found at ssbse20-FrDdE.pdf
 
-The document 'Table description', contains the entity relationship diagram and the schema viewof the major tables used for the study.
+The document 'Table description', contains the entity relationship diagram and the schema view of the major tables used for the study.
 The data sheet () contains information about the reports generated from the study and used for answering the research questions.
 
 The csv files bear data for the MySql tables that were created and used for the study. The headers for all tables are provided. To replicate the tables in MySQL, run the queries provided below. Description of all table data (csv files):
@@ -25,7 +25,9 @@ The csv files bear data for the MySql tables that were created and used for the 
 
 9. blastn_output.csv - This file contains a snapshot of the blastn_output table used for the study. The original blastn_output table has over 30 million records. The snapshot table has records for the first 10 input sequences queried using the first 100 configuration sets in blastn. The original table contains information about the outcome of individual hits generated when blastn was ran for every single input sequence against all 3000 possible configuration sets.
 
-Queries to create the above tables: 
+10. AllBestF_perSequence.csv - 
+
+#### Queries to create the above tables: 
 
 1. configuration -
 create table configuration (configNo int not null primary key, dust varchar(500) not null,lcase_masking varchar(500) not null,soft_masking varchar(500) not null,ungapped varchar(500) not null,xdrop_gap real not null,xdrop_gap_final real not null,xdrop_ungap real not null);
@@ -46,19 +48,22 @@ ALTER table blastn_output add constraint fk_blastnOp_config foreign key (confign
 
 6. config_dist.csv - create table config_dist(configNo int not null, distance int not null);
 
-7. bestF_Eq_Def.csv - create table bestF_Eq_Def(seqno int not null, configno int not null,distance int not null,medianpercid real(20,10),medianeval real(20,10),hits int not null, fitnessScore real(20,10));
+7. bestF_Eq_Def.csv - create table bestF_Eq_Def(seqno int not null, configno int not null,distance int not null,medianpercid real(20,10) not null,medianeval real(20,10) not null,hits int not null, fitnessScore real(20,10) not null);
 
-Load the data into the tables created:
+8. AllBestF_perSequence.csv - create table AllBestF_perSequence(seqno int not null,configno int not null,fitnessScore real(20,10),dust varchar(500) not null,lcase_masking varchar(500) not null,soft_masking varchar(500) not null,ungapped varchar(500) not null,xdrop_gap real not null,xdrop_gap_final real not null,xdrop_ungap real not null);
+
+#### Load the data into the tables created:
 
 1. LOAD DATA LOCAL INFILE 'configuration.csv' INTO TABLE configuration FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
 2. LOAD DATA LOCAL INFILE 'fitness.csv' INTO TABLE fitness FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
 3. LOAD DATA LOCAL INFILE 'blastn_output.csv' INTO TABLE blastn_output FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
 4. LOAD DATA LOCAL INFILE 'null_hits.csv' INTO TABLE null_hits FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
-5.
-6.
-7. 
+5. LOAD DATA LOCAL INFILE 'maxFitnessScorePerSequence.csv' INTO TABLE maxFitnessScorePerSequence FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
+6. LOAD DATA LOCAL INFILE 'config_dist.csv' INTO TABLE config_dist FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
+7. LOAD DATA LOCAL INFILE 'bestF_Eq_Def.csv' INTO TABLE bestF_Eq_Def FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
+8. LOAD DATA LOCAL INFILE 'AllBestF_perSequence.csv' INTO TABLE AllBestF_perSequence FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
 
-Acknowledgments:
+#### Acknowledgments:
 
 This work is supported in part by This work is supported in part by NSF Grant CCF-1901543 and by The Center for Bioenergy Innovation (CBI) which is supported by the Office of Biological and Environmental Research in the DOE Office of Science.
 
