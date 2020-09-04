@@ -1,6 +1,6 @@
 # SSBSE-FrDdE
 
-The camera ready version of our paper- "Using a Genetic Algorithm to Optimize Configurations in a Data driven Application" can be found at ssbse20-FrDdE.pdf
+The pre-print of our paper- "Using a Genetic Algorithm to Optimize Configurations in a Data driven Application" can be found at http://web.cs.iastate.edu/~mcohen/papers/ssbse20-preprint.pdf
 
 The document 'Table description', contains the entity relationship diagram and the schema view of the major tables used for the study.
 The data sheet () contains information about the reports generated from the study and used for answering the research questions.
