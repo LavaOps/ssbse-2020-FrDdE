@@ -3,7 +3,6 @@
 The pre-print of our paper- "Using a Genetic Algorithm to Optimize Configurations in a Data driven Application" can be found at http://web.cs.iastate.edu/~mcohen/papers/ssbse20-preprint.pdf
 
 The document 'Table description', contains the entity relationship diagram and the schema view of the major tables used for the study.
-The data sheet () contains information about the reports generated from the study and used for answering the research questions.
 
 The csv files bear data for the MySql tables that were created and used for the study. The headers for all tables are provided. To replicate the tables in MySQL, run the queries provided below. Description of all table data (csv files):
 
@@ -25,7 +24,6 @@ The csv files bear data for the MySql tables that were created and used for the 
 
 9. blastn_output.csv - This file contains a snapshot of the blastn_output table used for the study. The original blastn_output table has over 30 million records. The snapshot table has records for the first 10 input sequences queried using the first 100 configuration sets in blastn. The original table contains information about the outcome of individual hits generated when blastn was ran for every single input sequence against all 3000 possible configuration sets.
 
-10. AllBestF_perSequence.csv - 
 
 #### Queries to create the above tables: 
 
