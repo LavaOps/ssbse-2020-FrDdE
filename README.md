@@ -24,6 +24,7 @@ The csv files bear data for the MySql tables that were created and used for the 
 
 9. blastn_output.csv - This file contains a snapshot of the blastn_output table used for the study. The original blastn_output table has over 30 million records. The snapshot table has records for the first 10 input sequences queried using the first 100 configuration sets in blastn. The original table contains information about the outcome of individual hits generated when blastn was ran for every single input sequence against all 3000 possible configuration sets.
 
+10. AllBestF_perSequence.csv - This file contains the results of the best fitness scores per sequence along with their configuration numbers and their respective seven option's values.
 
 #### Queries to create the above tables: 
 
